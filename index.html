@@ -7,7 +7,7 @@
 <meta name="description" content="David Thomas — Computer Science at UC Irvine. Audio systems, sound synthesis, and signal-level machine learning.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#F5F1EA;          /* warm off-white / cream */
@@ -35,8 +35,8 @@
   html{scroll-behavior:smooth}
   body{
     background:var(--bg);color:var(--ink);
-    font-family:'Inter',system-ui,-apple-system,sans-serif;
-    line-height:1.6;font-size:16px;
+    font-family:'JetBrains Mono','SF Mono',ui-monospace,monospace;
+    line-height:1.6;font-size:15.5px;
     -webkit-font-smoothing:antialiased;
     padding:0 20px;
   }
@@ -52,21 +52,25 @@
     position:relative;
   }
   .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-  .avatar .mono{font-weight:700;font-size:30px;color:var(--accent);letter-spacing:-1px}
-  .intro h1{font-size:27px;font-weight:800;letter-spacing:-0.5px;line-height:1.15}
+  .avatar .mono{font-weight:700;font-size:28px;color:var(--accent)}
+  .intro h1{font-size:25px;font-weight:700;line-height:1.2}
   .intro .role{color:var(--ink-soft);font-weight:500;font-size:16px;margin-top:3px}
   .intro .loc{color:var(--muted);font-size:14px;margin-top:2px}
 
   /* ---------- social row ---------- */
-  .social{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:40px}
-  .social a{
-    display:inline-flex;align-items:center;gap:7px;
-    font-size:13.5px;font-weight:500;color:var(--ink-soft);
-    text-decoration:none;padding:7px 13px;border:1px solid var(--line);
-    border-radius:999px;background:var(--bg-card);transition:.18s;
+  .social{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+  .social a{display:inline-flex;text-decoration:none;transition:.18s}
+  .social a:hover{transform:translateY(-2px)}
+  .social .icon{
+    width:34px;height:34px;border-radius:9px;flex:none;
+    display:inline-flex;align-items:center;justify-content:center;
   }
-  .social a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
-  .social svg{width:15px;height:15px;fill:currentColor}
+  .social .icon svg{width:17px;height:17px;fill:#fff}
+  .social .icon.email{background:#4C6EF5}
+  .social .icon.github{background:#181717}
+  .social .icon.linkedin{background:#0A66C2}
+  .social .icon.spotify{background:#1DB954}
+  .social .icon.web{background:var(--accent)}
 
   /* ---------- lead paragraph ---------- */
   .lead{font-size:18px;line-height:1.65;color:var(--ink-soft);margin-bottom:8px}
@@ -79,14 +83,14 @@
     font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
     color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:10px;
   }
+  .label::before{content:"//";color:var(--accent);font-weight:700}
   .label::after{content:"";flex:1;height:1px;background:var(--line)}
 
   /* ---------- entry (now / previously) ---------- */
   .entry{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
   .entry:last-child{border-bottom:none}
   .entry .dot{
-    flex:none;width:38px;height:38px;border-radius:10px;margin-top:2px;
-    background:var(--accent-soft);border:1px solid var(--line);
+    flex:none;width:38px;margin-top:2px;
     display:flex;align-items:center;justify-content:center;
     font-weight:700;color:var(--accent);font-size:13px;
   }
@@ -101,10 +105,11 @@
   /* ---------- project cards ---------- */
   .project{
     display:block;text-decoration:none;color:inherit;
-    background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:22px 24px;margin-bottom:16px;transition:.18s;
+    border-bottom:1px solid var(--line);
+    padding:22px 0;transition:.18s;
   }
-  .project:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.06)}
+  .project:last-child{border-bottom:none}
+  .project:hover{transform:translateX(2px)}
   .project .phead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
   .project .pname{font-weight:700;font-size:18px;color:var(--ink)}
   .project .pmeta{color:var(--muted);font-size:13px;font-weight:500;white-space:nowrap}
@@ -148,12 +153,20 @@
 
   /* ---------- page load animation ---------- */
   @keyframes fadeRiseIn{
-    from{opacity:0;transform:translateY(14px)}
-    to{opacity:1;transform:translateY(0)}
+    from{opacity:0;transform:translateY(42px) scale(.97)}
+    to{opacity:1;transform:translateY(0) scale(1)}
   }
-  .wrap{animation:fadeRiseIn .9s cubic-bezier(.22,.61,.36,1) both}
+  .top,.social,.lead{animation:fadeRiseIn .8s cubic-bezier(.16,1,.3,1) both}
+  .social{animation-delay:.08s}
+  .lead{animation-delay:.16s}
+  .section{animation:fadeRiseIn .8s cubic-bezier(.16,1,.3,1) both}
+  .section:nth-of-type(1){animation-delay:.24s}
+  .section:nth-of-type(2){animation-delay:.34s}
+  .section:nth-of-type(3){animation-delay:.44s}
+  .section:nth-of-type(4){animation-delay:.54s}
+  footer{animation:fadeRiseIn .8s cubic-bezier(.16,1,.3,1) .64s both}
   @media (prefers-reduced-motion:reduce){
-    .wrap{animation:none}
+    .top,.social,.lead,.section,footer{animation:none}
   }
 </style>
 </head>
@@ -174,25 +187,20 @@
 
   <!-- SOCIAL -->
   <nav class="social">
-    <a href="mailto:thomasdw@uci.edu">
-      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
-      Email
+    <a href="mailto:thomasdw@uci.edu" aria-label="Email" title="Email">
+      <span class="icon email"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg></span>
     </a>
-    <a href="https://github.com/davidthomas777" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/></svg>
-      GitHub
+    <a href="https://github.com/davidthomas777" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+      <span class="icon github"><svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/></svg></span>
     </a>
-    <a href="https://linkedin.com/in/davidwthomas04" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.9H5.67v8.44h2.67zM7 8.67a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.67v-4.63c0-2.47-1.32-3.62-3.08-3.62a2.66 2.66 0 0 0-2.41 1.32v-1.13h-2.67v8.44h2.67v-4.46c0-1.18.22-2.32 1.68-2.32 1.44 0 1.46 1.35 1.46 2.4v4.38h2.67z"/></svg>
-      LinkedIn
+    <a href="https://linkedin.com/in/davidwthomas04" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+      <span class="icon linkedin"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.9H5.67v8.44h2.67zM7 8.67a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.67v-4.63c0-2.47-1.32-3.62-3.08-3.62a2.66 2.66 0 0 0-2.41 1.32v-1.13h-2.67v8.44h2.67v-4.46c0-1.18.22-2.32 1.68-2.32 1.44 0 1.46 1.35 1.46 2.4v4.38h2.67z"/></svg></span>
     </a>
-    <a href="https://open.spotify.com/playlist/45rk47L22SayWcFyJDFAKZ?si=3bdd3b1988db4d9a" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.59 14.44a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.22c3.81-.87 7.09-.5 9.72 1.11.3.18.39.57.21.86zm1.23-2.73a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33.37.23.48.71.25 1.07zm.11-2.85c-3.23-1.92-8.56-2.1-11.64-1.16a.93.93 0 1 1-.54-1.78c3.54-1.07 9.42-.87 13.14 1.34a.93.93 0 1 1-.96 1.6z"/></svg>
-      Music
+    <a href="https://open.spotify.com/playlist/45rk47L22SayWcFyJDFAKZ?si=3bdd3b1988db4d9a" target="_blank" rel="noopener" aria-label="Music" title="Music">
+      <span class="icon spotify"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.59 14.44a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.22c3.81-.87 7.09-.5 9.72 1.11.3.18.39.57.21.86zm1.23-2.73a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33.37.23.48.71.25 1.07zm.11-2.85c-3.23-1.92-8.56-2.1-11.64-1.16a.93.93 0 1 1-.54-1.78c3.54-1.07 9.42-.87 13.14 1.34a.93.93 0 1 1-.96 1.6z"/></svg></span>
     </a>
-    <a href="https://soundethics.org" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2c1.1 0 2.3 1.9 2.8 5H9.2C9.7 5.9 10.9 4 12 4zM8.1 6.2C7.7 7.5 7.4 9 7.3 11H4.3a8 8 0 0 1 3.8-4.8zM4.3 13h3c.1 2 .4 3.5.8 4.8A8 8 0 0 1 4.3 13zm4.9 5.8C9.7 18.1 10 16.5 9.1 13h5.8c-.1 2-.4 3.5-.8 4.8-.5 3.1-1.7 5-2.8 5s-2.3-1.9-2.1-4.2zm6.7-1A17 17 0 0 0 16.7 13h3a8 8 0 0 1-3.8 4.8zM16.7 11c-.1-2-.4-3.5-.8-4.8A8 8 0 0 1 19.7 11h-3z"/></svg>
-      SoundEthics
+    <a href="https://soundethics.org" target="_blank" rel="noopener" aria-label="SoundEthics" title="SoundEthics">
+      <span class="icon web"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2c1.1 0 2.3 1.9 2.8 5H9.2C9.7 5.9 10.9 4 12 4zM8.1 6.2C7.7 7.5 7.4 9 7.3 11H4.3a8 8 0 0 1 3.8-4.8zM4.3 13h3c.1 2 .4 3.5.8 4.8A8 8 0 0 1 4.3 13zm4.9 5.8C9.7 18.1 10 16.5 9.1 13h5.8c-.1 2-.4 3.5-.8 4.8-.5 3.1-1.7 5-2.8 5s-2.3-1.9-2.1-4.2zm6.7-1A17 17 0 0 0 16.7 13h3a8 8 0 0 1-3.8 4.8zM16.7 11c-.1-2-.4-3.5-.8-4.8A8 8 0 0 1 19.7 11h-3z"/></svg></span>
     </a>
   </nav>
 
