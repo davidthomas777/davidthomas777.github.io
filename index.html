@@ -14,26 +14,26 @@ window.scrollTo(0,0);
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F5F1EA;          /* warm off-white / cream */
-    --bg-card:#FBF8F3;
-    --ink:#1C1A17;         /* near-black warm */
-    --ink-soft:#4A463F;
-    --muted:#8A8478;
-    --line:#E4DDD1;
-    --accent:#B5651D;      /* warm amber/terracotta, nods to the audio amber */
-    --accent-soft:#F0E4D4;
+    --bg:#F3F6FB;          /* cool off-white / ice blue */
+    --bg-card:#FAFCFF;
+    --ink:#121A2A;         /* near-black cool navy */
+    --ink-soft:#44506A;
+    --muted:#848FA3;
+    --line:#DCE3EF;
+    --accent:#2F6FED;      /* core blue accent */
+    --accent-soft:#E1EAFB;
     --radius:16px;
     --maxw:720px;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#17150F; --bg-card:#201D16; --ink:#F3EEE4; --ink-soft:#C9C2B4;
-      --muted:#8F897B; --line:#302B22; --accent:#E0A45C; --accent-soft:#2A2318;
+      --bg:#0D1320; --bg-card:#141C2C; --ink:#E8EDF7; --ink-soft:#B7C1D6;
+      --muted:#7C879F; --line:#232D42; --accent:#5B9CFF; --accent-soft:#1B2740;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#17150F; --bg-card:#201D16; --ink:#F3EEE4; --ink-soft:#C9C2B4;
-    --muted:#8F897B; --line:#302B22; --accent:#E0A45C; --accent-soft:#2A2318;
+    --bg:#0D1320; --bg-card:#141C2C; --ink:#E8EDF7; --ink-soft:#B7C1D6;
+    --muted:#7C879F; --line:#232D42; --accent:#5B9CFF; --accent-soft:#1B2740;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;overflow-anchor:none}
@@ -112,7 +112,7 @@ window.scrollTo(0,0);
   .entry .head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
   .entry .title{font-weight:650;font-size:16px;color:var(--ink)}
   .entry .title .at{color:var(--muted);font-weight:500}
-  .entry .year{color:var(--muted);font-size:13.5px;font-weight:500;white-space:nowrap}
+  .entry .year{color:var(--muted);font-size:13.5px;font-weight:500;white-space:nowrap;margin-left:auto}
   .entry .desc{color:var(--ink-soft);font-size:14.5px;margin-top:4px}
   .entry .metric{color:var(--accent);font-weight:600}
 
@@ -230,7 +230,7 @@ window.scrollTo(0,0);
       <div class="body">
         <div class="head">
           <div class="title">Software Engineer Intern <span class="at">· SeeSaw Labs</span></div>
-          <div class="year">Jun 2026 — Sep 2026</div>
+          <div class="year">Jun 2026 — Present</div>
         </div>
         <div class="desc">
           Built a synthetic-persona AI prototype on a production LangGraph/FastAPI stack, with per-persona
@@ -243,8 +243,8 @@ window.scrollTo(0,0);
       <div class="dot">SE</div>
       <div class="body">
         <div class="head">
-          <div class="title">Audio authenticity research <span class="at">· SoundEthics.org, through AI@UCI</span></div>
-          <div class="year">2025 — Present</div>
+          <div class="title">Capstone - SoundEthics.org <span class="at">· AI@UCI</span></div>
+          <div class="year">Nov 2025 — Present</div>
         </div>
         <div class="desc">
           Distinguishing human- from AI-generated audio. BlueSynth was the first deliverable; the detection
@@ -264,7 +264,7 @@ window.scrollTo(0,0);
           <div class="pname">BlueSynth</div>
           <div class="ptag">Synthesizer plugin · C++ / JUCE</div>
         </div>
-        <div class="pmeta">2025 — Present</div>
+        <div class="pmeta">Jul 2025 — Present</div>
       </div>
       <!-- audio nod: live waveform -->
       <div class="wavewrap"><canvas id="wave" width="1360" height="128"></canvas></div>
@@ -288,7 +288,7 @@ window.scrollTo(0,0);
         <div>
           <div class="pname">Music Production</div>
         </div>
-        <div class="pmeta">2019 — Present</div>
+        <div class="pmeta">2020 — Present</div>
       </div>
       <div class="pdesc">
         A debut album written, performed, and produced independently. Worked with an artist signed to 88rising. Reached <span style="color:var(--accent);font-weight:600">1.8M+ streams</span> in total.
@@ -309,7 +309,7 @@ window.scrollTo(0,0);
           <div class="pname">MusicWeb</div>
           <div class="ptag">Full-stack music discovery</div>
         </div>
-        <div class="pmeta">2025</div>
+        <div class="pmeta">Jul 2025 — Sep 2025</div>
       </div>
       <div class="pdesc">
         A music-discovery platform I designed and led, mapping listening data to recommend new artists.
@@ -331,7 +331,7 @@ window.scrollTo(0,0);
       <div class="body">
         <div class="head">
           <div class="title">Python Learning Assistant <span class="at">· UC Irvine (ICS)</span></div>
-          <div class="year">2025</div>
+          <div class="year">Apr 2025 — Dec 2025</div>
         </div>
         <div class="desc">Mentored <span class="metric">50+ students</span> each week in introductory CS (ICS 32H / 32), sharpening both fundamentals and how I explain hard ideas.</div>
       </div>
@@ -342,7 +342,7 @@ window.scrollTo(0,0);
       <div class="body">
         <div class="head">
           <div class="title">Software Engineer Intern <span class="at">· Yuri Method STEM Lab</span></div>
-          <div class="year">2025</div>
+          <div class="year">Jun 2025 — Sep 2025</div>
         </div>
         <div class="desc">Built a full-stack attendance and member system (JavaScript, Wix Velo, NoSQL) serving <span class="metric">400+ students</span>, cutting manual work by 5+ hours a week.</div>
       </div>
