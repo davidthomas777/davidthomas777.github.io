@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0,0);
+</script>
 <title>David Thomas</title>
 <meta name="description" content="David Thomas — Computer Science at UC Irvine. Audio systems, sound synthesis, and signal-level machine learning.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +36,7 @@
     --muted:#8F897B; --line:#302B22; --accent:#E0A45C; --accent-soft:#2A2318;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-anchor:none}
   body{
     background:var(--bg);color:var(--ink);
     font-family:'JetBrains Mono','SF Mono',ui-monospace,monospace;
