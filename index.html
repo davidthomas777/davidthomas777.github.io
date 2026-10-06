@@ -145,6 +145,16 @@
   .mailrow svg{width:16px;height:16px;fill:currentColor}
 
   footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+
+  /* ---------- page load animation ---------- */
+  @keyframes fadeRiseIn{
+    from{opacity:0;transform:translateY(14px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  .wrap{animation:fadeRiseIn .9s cubic-bezier(.22,.61,.36,1) both}
+  @media (prefers-reduced-motion:reduce){
+    .wrap{animation:none}
+  }
 </style>
 </head>
 <body>
